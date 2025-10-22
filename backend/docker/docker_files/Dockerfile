@@ -3,10 +3,11 @@ FROM python:3.10
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN set -e; \
+RUN set -e ;\
     apt-get update ;\
-    apt-get -y install netcat ;\
-    apt-get -y install gettext ;
+    apt-get -y install netcat-openbsd gettext httpie ;\
+    pip install --upgrade pip ;\
+    pip install flask
 
 RUN mkdir /code
 COPY . /code/
